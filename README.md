@@ -4,6 +4,20 @@
 
 Welcome to the ultimate overengineering masterclass: a "Hello World" project built with enterprise-grade architecture, comprehensive layering, and complete overkill for what should be a simple greeting service.
 
+> ⚡ **Quick start**
+> ```bash
+> # install dependencies (uses the custom `uv` CLI - equivalent to `pip install -e .`)
+> uv sync
+> 
+> # run migrations
+> alembic upgrade head
+> 
+> # start the server (via uv)
+> ```bash
+> uv run uvicorn src.app:app --reload
+> ```
+> Then visit `http://localhost:8000/docs` for Swagger UI.
+
 ## Features
 
 ✨ **The Essentials (But More)**
@@ -51,6 +65,14 @@ hello-world-oa/
 ### Hello Routes
 - `GET /hello?receiver=<name>` - Say hello to someone
 
+**Example**:
+```bash
+curl "http://localhost:8000/hello?receiver=world"
+# {"message":"Hello, world!"}
+```
+
+(Other endpoints exist for planets; see the routers in `src/routes` for POST/PUT/DELETE payloads.)
+
 ## Architecture Layers
 
 ### Route Layer
@@ -86,7 +108,7 @@ alembic upgrade head
 
 ## Installation & Setup
 
-1. Install dependencies:
+1. Install dependencies (this project uses a lightweight `uv` wrapper over pip; you can also run `pip install -e .`):
 ```bash
 uv sync
 ```
@@ -96,30 +118,14 @@ uv sync
 alembic upgrade head
 ```
 
-3. Start the server:
+# start the server (using the `uv` CLI which wraps uvicorn)
 ```bash
-python main.py
+uv run uvicorn main:app --reload
 ```
 
 4. Visit `http://localhost:8000/docs` for Swagger UI
 
-## Why This Is Overengineered
-
-A simple "Hello World" typically requires:
-- One file
-- 1 line of code
-
-This project includes:
-- ✅ 8+ files
-- ✅ 4 service classes
-- ✅ Database ORM layer
-- ✅ Repository pattern
-- ✅ Pydantic validation
-- ✅ Migration system
-- ✅ Type hints throughout
-- ✅ Custom route handling
-
-**Conclusion:** Trading simplicity for scalability and enterprise patterns, this is what happens when you treat Hello World like microservices infrastructure.
+**Conclusion:** Trading simplicity for scalability and enterprise patterns, this is what happens when you treat Hello World like microservices infrastructure. If you think it is unnecessary, then we will probably implement it.
 
 ## Technologies
 
@@ -129,8 +135,14 @@ This project includes:
 - **Alembic** - Database migrations
 - **SQLite** - Lightweight database
 
-## Future plans
-- Unit tests with pytest
+## Features and future plans
+- ✅ Rest API endpoints with **FastAPI**
+- ✅ Database migrations with **Alembic**
+- ✅ **SOLID**
+- ✅ Dependency management with **uv**
+- ✅ Typechecking and linting with **ruff** and **ty**
+- 100% unit test coverage with **pytest**
+- Coverage report generation
 - Dockerized build environment
 - CI/CD pipeline
 - Terraform IAC

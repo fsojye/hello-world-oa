@@ -13,5 +13,39 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "alembic>=1.18.4"
+    "alembic>=1.18.4",
+    "pytest>=9.0.2",
+    "ruff>=0.15.3",
+    "ty>=0.0.19"
 ]
+
+[tool.ruff]
+exclude = [
+    "migrations"
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+[tool.ruff.lint.isort]
+relative-imports-order = "closest-to-furthest"
+combine-as-imports = true
+
+[tool.ty.src]
+exclude = ["migrations"]
+
+[tool.ty.environment]
+root = ["./src"]

@@ -10,7 +10,7 @@ class PlanetCreatorService:
         try:
             return self.planet_repo.create_planet(name)
         except Exception as e:
-            raise CreatePlanetException(e)
+            raise CreatePlanetException from e
 
 
 class CreatePlanetException(Exception):

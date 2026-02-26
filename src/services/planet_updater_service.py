@@ -14,8 +14,8 @@ class PlanetUpdaterService:
             if planet:
                 return planet
         except Exception as e:
-            raise UpdatePlanetException(e)
-        
+            raise UpdatePlanetException from e
+
         raise HTTPException(status_code=404)
 
 

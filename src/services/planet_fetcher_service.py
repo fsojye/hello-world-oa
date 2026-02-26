@@ -14,11 +14,10 @@ class PlanetFetcherService:
             if planet:
                 return planet
         except Exception as e:
-            raise GetPlanetByNameException(e)
-        
-        raise HTTPException(status_code=404)    
-        
-    
+            raise GetPlanetByNameException from e
+
+        raise HTTPException(status_code=404)
+
     def get_planets(self) -> list[Planet]:
         return self.planet_repo.get_all()
 

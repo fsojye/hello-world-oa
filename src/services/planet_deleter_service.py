@@ -13,8 +13,8 @@ class PlanetDeleterService:
             if is_deleted:
                 return is_deleted
         except Exception as e:
-            raise DeletePlanetException(e)
-        
+            raise DeletePlanetException from e
+
         raise HTTPException(status_code=404)
 
 
