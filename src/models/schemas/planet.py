@@ -14,15 +14,10 @@ class Planet(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(100))
     date_created: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), 
-        server_default=func.now()
+        DateTime(timezone=True), server_default=func.now()
     )
     date_modified: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), 
-        server_default=func.now(), 
-        onupdate=func.now()
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
     )
-    
-    __table_args__ = (
-        UniqueConstraint('name', name='planet_name_uc'),
-    )
+
+    __table_args__ = (UniqueConstraint("name", name="planet_name_uc"),)

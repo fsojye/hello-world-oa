@@ -44,5 +44,8 @@ select = [
 relative-imports-order = "closest-to-furthest"
 combine-as-imports = true
 
+[tool.ty.src]
+exclude = ["migrations"]
+
 [tool.ty.environment]
 root = ["./src"]
