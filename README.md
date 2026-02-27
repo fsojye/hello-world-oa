@@ -125,7 +125,7 @@ uv run uvicorn main:app --reload
 
 4. Visit `http://localhost:8000/docs` for Swagger UI
 
-**Conclusion:** Trading simplicity for scalability and enterprise patterns, this is what happens when you treat Hello World like microservices infrastructure. If you think it is unnecessary, then we will probably implement it.
+**Conclusion:** Trading simplicity for scalability and enterprise patterns, this is what happens when you treat Hello World like microservices infrastructure. If you think we don't need it, then we will probably implement it.
 
 ## Technologies
 

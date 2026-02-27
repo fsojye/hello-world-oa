@@ -4,7 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 from routes import goodbye_route, hello_route, world_route
 
 
-def get_app():
+def get_app() -> FastAPI:
     app = FastAPI(
         # dependencies=[Depends(authorizer)]
     )
